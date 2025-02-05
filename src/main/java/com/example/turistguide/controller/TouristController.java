@@ -1,16 +1,15 @@
 package com.example.turistguide.controller;
 
+import org.springframework.ui.Model;
 import com.example.turistguide.model.Attraction;
 import com.example.turistguide.service.TouristService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("/attractions")
+@RequestMapping("/")
 public class TouristController {
     private TouristService touristService;
 
@@ -19,24 +18,20 @@ public class TouristController {
     }
 
 
-    @GetMapping("")
-    public ResponseEntity<List<Attraction>> getAllTouristAttractions() {
-        List<Attraction> touristAttractions = touristService.getAllTouristAttractions();
-        return new ResponseEntity<>(touristAttractions, HttpStatus.OK);
+    @GetMapping("/search")
+    public String searchTouristAttraction(@RequestParam (value="name", defaultValue ="Pyramid of Giza") String name, Model model){
+        Attraction searchAttraction = touristService.getAttractionByName(name);
+        model.addAttribute("attraction", searchAttraction);
+        return "attractions";
     }
 
-    @GetMapping("/{name}")
-    public ResponseEntity<Attraction> getTouristAttractionByName(@PathVariable String name) {
-        Attraction touristAttraction = touristService.getAttractionByName(name);
-        return new ResponseEntity<>(touristAttraction, HttpStatus.OK);
+    @GetMapping("/")
+    public String getAllAttractions(Model model){
+        List<Attraction> attractions = touristService.getAllTouristAttractions();
+        model.addAttribute("attractions", attractions);
+        return "index";
     }
 
-    @PostMapping("/add")
-    public ResponseEntity<Attraction> addTouristAttraction(@RequestBody Attraction attraction){
-        Attraction newAttraction = touristService.addTouristAttraction(attraction);
-        return new ResponseEntity<>(newAttraction,  HttpStatus.CREATED);
-
-    }
 }
 
 

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tourist Guide</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<h1>Tourist Guide</h1>
+
+<nav>
+  A tour guide for art museum attractions
+</nav>
+
+<hr/>
+
+<p>Explore various attractions around the world in the most comprehensive tourist guide.</p>
+
+<h2>List of All Attractions</h2>
+
+<!-- Displaying a list of attractions using Thymeleaf -->
+<ul th:if="${not #lists.isEmpty(attractions)}">
+  <li th:each="attraction : ${attractions}">
+    <strong th:text="${attraction.name} ?: 'Unnamed Attraction'"></strong> -
+    <span th:text="${attraction.description} ?: 'No description available.'"></span>
+  </li>
+</ul>
+
+<p th:if="${#lists.isEmpty(attractions)}">No attractions found.</p>
+
+<!-- Link to view all attractions -->
+<a href="http://localhost:8080/api/attractions">Check all Attractions</a>
+
+<!-- Search form -->
+<form action="/search" method="get">
+  <p>
+    <label for="name">Search Attraction:</label>
+    <input type="text" id="name" name="name" required>
+    <button type="submit">Search</button>
+  </p>
+</form>
+
+</body>
+</html>

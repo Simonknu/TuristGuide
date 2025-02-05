@@ -9,13 +9,14 @@ import java.util.List;
 
 @Repository
 public class TouristRepository {
-    private final List<Attraction> attractions = new ArrayList<>();
+    private List<Attraction> attractions;
 
 
 
 
 
     public TouristRepository(){
+        attractions = new ArrayList<>();
         Attraction greatWallOfChina = new Attraction("Great Wall of China", "Biggest handmade structure in history");
         Attraction eiffelTower = new Attraction("Eiffel Tower", "Big tower in Paris");
         Attraction example = new Attraction("example", "example");
@@ -27,7 +28,7 @@ public class TouristRepository {
 
 
     public List<Attraction> getAllTouristAttractions() {
-        return attractions;
+        return new ArrayList<> (attractions);
     }
 
 
