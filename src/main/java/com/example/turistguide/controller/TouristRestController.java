@@ -3,8 +3,11 @@ package com.example.turistguide.controller;
 
 import com.example.turistguide.model.Attraction;
 import com.example.turistguide.service.TouristService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.naming.Name;
 import java.util.List;
 
 @RestController
@@ -17,23 +20,27 @@ public class TouristRestController {
         this.touristService = touristService;
     }
 
-    // ✅ Return all attractions as JSON
     @GetMapping("")
     public List<Attraction> getAllTouristAttractions() {
         return touristService.getAllTouristAttractions();
     }
 
-    // ✅ Return one attraction by name as JSON
     @GetMapping("/{name}")
     public Attraction getTouristAttractionByName(@PathVariable String name) {
         return touristService.getAttractionByName(name);
     }
 
-    // ✅ Add new attraction (POST request with JSON body)
     @PostMapping("/add")
-    public Attraction addTouristAttraction(@RequestBody Attraction attraction) {
-        return touristService.addTouristAttraction(attraction);
+    public ResponseEntity<Attraction> addTouristAttraction(@RequestBody Attraction attraction){
+        Attraction newAttraction = touristService.addTouristAttraction(attraction);
+        return new ResponseEntity<>(newAttraction, HttpStatus.CREATED);
     }
 
+    @DeleteMapping("/delete/{name}")
+    public ResponseEntity<Attraction> deleteAttraction(@PathVariable String name){
+        Attraction attractionToDelete = touristService.getAttractionByName(name);
+        touristService.deleteTouristAttraction(attractionToDelete);
+        return new ResponseEntity<>(attractionToDelete, HttpStatus.OK);
+    }
 
 }

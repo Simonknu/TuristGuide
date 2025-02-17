@@ -5,6 +5,7 @@ import com.example.turistguide.model.Attraction;
 import com.example.turistguide.service.TouristService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.w3c.dom.Attr;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class TouristController {
 
 
     @GetMapping("/search")
-    public String searchTouristAttraction(@RequestParam (value="name", defaultValue ="Pyramid of Giza") String name, Model model){
+    public String searchTouristAttraction(@RequestParam (value="name") String name, Model model){
         Attraction searchAttraction = touristService.getAttractionByName(name);
         model.addAttribute("attraction", searchAttraction);
         return "attractions";
@@ -31,7 +32,14 @@ public class TouristController {
         model.addAttribute("attractions", attractions);
         return "index";
     }
-
+/*
+    @PostMapping
+    public String addAttraction(@RequestParam (value="name") String name, Model model ){
+        Attraction addAttraction = touristService.getAttractionByName(name);
+        touristService.addTouristAttraction(model);
+        return "index";
+    }
+*/
 }
 
 

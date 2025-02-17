@@ -4,21 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tourist Attraction Details</title>
-    <link rel="stylesheet" href="/attractionsStyle.css">
+    <link rel="stylesheet" href="/attractionStyle.css">
 </head>
 <body>
-<div class="container">
+<div>
     <!-- Header section -->
     <header>
-        <h1><span th:text="${attraction.name}">Attraction Name</span></h1>
+        <h1><span th:text="${attraction.getName()}">Attraction Name</span></h1>
     </header>
 
     <hr>
 
     <!-- Details Section -->
     <section class="attraction-details">
-        <p><strong>Description:</strong> <span th:text="${attraction.description}">Description not available</span></p>
+        <p><strong>Description:</strong> <span th:text="${attraction.getDescription()}">Description not available</span></p>
     </section>
+
+    <img th:src="@{'/Images/' + ${attraction.getImageUrl()}}" alt="Picture of the attraction" width="500">
 
     <!-- Navigation Link -->
     <div class="back-link">

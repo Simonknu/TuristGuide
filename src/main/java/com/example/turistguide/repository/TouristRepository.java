@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public class TouristRepository {
-    private List<Attraction> attractions;
+    private final List<Attraction> attractions;
 
 
 
@@ -17,12 +17,12 @@ public class TouristRepository {
 
     public TouristRepository(){
         attractions = new ArrayList<>();
-        Attraction greatWallOfChina = new Attraction("Great Wall of China", "Biggest handmade structure in history");
-        Attraction eiffelTower = new Attraction("Eiffel Tower", "Big tower in Paris");
-        Attraction example = new Attraction("example", "example");
+        Attraction greatWallOfChina = new Attraction("Copenhagen Zoo","Big description", "Biggest handmade structure in history", "CopenhagenZoo.jpg");
+        Attraction eiffelTower = new Attraction("Den Blå Planet","adwkjbakwjbd", "Big tower in Paris", "DenBlaPlanet.jpg");
+        Attraction tajMahal = new Attraction("Amalienborg Palace","akhdawoihdawoinb", "Big monument in India", "AmalienBorg.jpg");
         attractions.add(greatWallOfChina);
         attractions.add(eiffelTower);
-        attractions.add(example);
+        attractions.add(tajMahal);
 
     }
 
@@ -43,6 +43,11 @@ public class TouristRepository {
 
     public Attraction addTouristAttraction(Attraction attraction){
         attractions.add(attraction);
+        return attraction;
+    }
+
+    public Attraction deleteTouristAttraction(Attraction attraction){
+        attractions.remove(attraction);
         return attraction;
     }
 }

@@ -25,4 +25,7 @@ public class TouristService {
     public Attraction addTouristAttraction(Attraction attraction){
         return touristRepository.addTouristAttraction(attraction);
     }
+    public Attraction deleteTouristAttraction(Attraction attraction){
+        return touristRepository.deleteTouristAttraction(attraction);
+    }
 }

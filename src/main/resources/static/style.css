@@ -1,160 +1,53 @@
-/* General reset for some common styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+
+.container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    background-color: lightgray;
+
 }
 
-/* Body styles */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f6f9; /* Soft light background color */
-    color: #333;
-    line-height: 1.6;
-    padding: 0 15px;
-}
+.title{
 
-/* Header (Title) */
-h1 {
+    grid-column: span 2;
+    grid-row: 1;
+    background-color: crimson;
     text-align: center;
-    font-size: 2.5rem;
-    color: #e74c3c; /* Bright red */
-    margin-top: 20px;
-    font-weight: 700;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
+    font-size: xxx-large;
 
-/* Navigation section */
-nav {
-    background-color: #2c3e50; /* Dark blue-grey background */
-    color: #fff;
-    padding: 10px 0;
+}
+.nav{
+    grid-area: nav;
+    grid-column: span 2;
+    grid-row: 2;
+    background-color: crimson;
+    font-size: large;
     text-align: center;
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    border-radius: 5px;
 }
 
-/* Paragraph text */
-p {
-    font-size: 1rem;
-    color: #555;
+.h2{
+    grid-column: 1;
+    grid-row: 4;
+    font-size: large;
+    color: darkcyan;
+    text-align: right;
+}
+.list{
+    grid-column: 2;
+    grid-row: 4;
+}
+.link{
+    grid-column: 2;
+    grid-row: 3;
     text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Styling for the horizontal line */
-hr {
-    border: 1px solid #e0e0e0;
-    margin: 20px 0;
-}
-
-/* List of attractions */
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 20px auto;
-    max-width: 800px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-}
-
-ul li {
-    padding: 10px;
-    border-bottom: 1px solid #e0e0e0;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: #f9f9f9; /* Light grey background for each list item */
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    min-height: 100px;
+
 }
+.footer{
+    grid-column: span 2;
+    background-color: black;
+    color: white;
 
-ul li:hover {
-    background-color: #ecf0f1; /* Light hover effect */
-}
-
-ul li:last-child {
-    border-bottom: none;
-}
-
-strong {
-    font-size: 1.2rem;
-    color: #34495e; /* Dark greyish-blue for attraction names */
-}
-
-span {
-    font-size: 1rem;
-    color: #7f8c8d; /* Muted grey color for descriptions */
-}
-
-/* Search Form Styles */
-form {
-    margin-top: 30px;
-    text-align: center;
-}
-
-form input[type="text"] {
-    padding: 10px;
-    margin-right: 10px;
-    width: 250px;
-    border: 2px solid #3498db; /* Blue border */
-    border-radius: 5px;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-form input[type="text"]:focus {
-    border-color: #e74c3c; /* Red border on focus */
-}
-
-form button {
-    padding: 10px 20px;
-    background-color: #3498db; /* Blue button */
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-form button:hover {
-    background-color: #2980b9; /* Darker blue on hover */
-}
-
-/* Links */
-a {
-    text-decoration: none;
-    color: #e74c3c; /* Bright red for links */
-    font-size: 1.2rem;
-    display: block;
-    text-align: center;
-    margin-top: 30px;
-    font-weight: 600;
-}
-
-a:hover {
-    text-decoration: underline;
-    color: #c0392b; /* Darker red on hover */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
-    }
-
-    ul {
-        max-width: 100%;
-    }
-
-    form input[type="text"] {
-        width: 200px;
-    }
-
-    form button {
-        padding: 8px 18px;
-    }
 }
