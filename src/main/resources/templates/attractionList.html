@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Attraction List</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Tags</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="attraction : ${attractions}">
+        <td th:text="${attraction.name} ?: 'Unnamed Attraction'"></td>
+        <td th:text="${attraction.smallDescription} ?: 'No description available.'"></td>
+        <td>  <form th:action="@{/{name}/tags}" method="get">
+            <input type="hidden" name="name" th:value="${attraction.name}">
+            <button type="submit">Tags</button>
+        </form>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -32,14 +32,35 @@ public class TouristController {
         model.addAttribute("attractions", attractions);
         return "index";
     }
+
+    @GetMapping("/attractionList")
+    public String getAttractionsList(Model model){
+        List<Attraction> attractions = touristService.getAllTouristAttractions();
+        model.addAttribute("attractions", attractions);
+        return "attractionList";
+    }
+
+    @GetMapping("/{name}/tags")
+    public String getAttractionTags(@RequestParam (value="name") String name, Model model){
+        Attraction attraction = touristService.getAttractionByName(name);
+        model.addAttribute("attraction", attraction);
+        return "tags";
+
+    }
+
+    @GetMapping("/add")
+    public String addAttractionGetMethod(){
+        return "addAttraction";
+    }
 /*
     @PostMapping
     public String addAttraction(@RequestParam (value="name") String name, Model model ){
         Attraction addAttraction = touristService.getAttractionByName(name);
         touristService.addTouristAttraction(model);
-        return "index";
+        return "";
     }
-*/
+
+ */
 }
 
 
