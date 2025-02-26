@@ -17,7 +17,7 @@
     <tbody>
     <tr th:each="attraction : ${attractions}">
         <td th:text="${attraction.name} ?: 'Unnamed Attraction'"></td>
-        <td th:text="${attraction.smallDescription} ?: 'No description available.'"></td>
+        <td th:text="${attraction.description} ?: 'No description available.'"></td>
         <td>  <form th:action="@{/{name}/tags}" method="get">
             <input type="hidden" name="name" th:value="${attraction.name}">
             <button type="submit">Tags</button>
@@ -27,6 +27,14 @@
     </tr>
     </tbody>
 </table>
+
+<form action="/addGet" method="get">
+    <button type="submit"> Add an attraction</button>
+</form>
+
+<form action="/" method="get">
+    <button type="submit">Go Back</button>
+</form>
 
 </body>
 </html>

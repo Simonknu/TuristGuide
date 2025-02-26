@@ -24,7 +24,7 @@
 <ul th:if="${not #lists.isEmpty(attractions)}" class="list">
   <li th:each="attraction, stat : ${attractions}" th:if="${stat.index < 3}">
     <strong th:text="${attraction.name} ?: 'Unnamed Attraction'"></strong> -
-    <span th:text="${attraction.smallDescription} ?: 'No description available.'"></span>
+    <span th:text="${attraction.description} ?: 'No description available.'"></span>
   </li>
 </ul>
 

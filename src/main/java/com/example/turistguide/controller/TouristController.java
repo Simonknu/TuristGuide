@@ -53,11 +53,6 @@ public class TouristController {
         return "addAttraction";
     }
 
-    @PostMapping
-    public String addAttraction(@RequestParam (value="name") String name, Model model ){
-        Attraction addAttraction = touristService.getAttractionByName(name);
-        return "index";
-    }
 }
 
 
