@@ -48,19 +48,16 @@ public class TouristController {
 
     }
 
-    @GetMapping("/add")
+    @GetMapping("/addGet")
     public String addAttractionGetMethod(){
         return "addAttraction";
     }
-/*
+
     @PostMapping
     public String addAttraction(@RequestParam (value="name") String name, Model model ){
         Attraction addAttraction = touristService.getAttractionByName(name);
-        touristService.addTouristAttraction(model);
-        return "";
+        return "index";
     }
-
- */
 }
 
 

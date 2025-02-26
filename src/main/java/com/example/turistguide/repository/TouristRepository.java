@@ -3,6 +3,7 @@ package com.example.turistguide.repository;
 
 import com.example.turistguide.model.Attraction;
 import org.springframework.stereotype.Repository;
+import org.w3c.dom.Attr;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,15 +17,21 @@ public class TouristRepository {
 
 
     public TouristRepository(){
-        attractions = new ArrayList<>();
-        Attraction greatWallOfChina = new Attraction("Copenhagen Zoo","Big description", "Biggest handmade structure in history", "CopenhagenZoo.jpg");
-        Attraction eiffelTower = new Attraction("Den Blå Planet","adwkjbakwjbd", "Big tower in Paris", "DenBlaPlanet.jpg");
-        Attraction tajMahal = new Attraction("Amalienborg Palace","akhdawoihdawoinb", "Big monument in India", "AmalienBorg.jpg");
-        attractions.add(greatWallOfChina);
-        attractions.add(eiffelTower);
-        attractions.add(tajMahal);
+        attractions = attractions();
 
     }
+
+    public List<Attraction> attractions(){
+        Attraction copenhagenZoo = new Attraction("Copenhagen Zoo", "Zoo", List.of("Nature"));
+        Attraction blaPlanet = new Attraction("Den Bla Planet", "Aquarium", List.of("Nautre"));
+        Attraction amalienBorg = new Attraction("Amalien Borg", "Castle", List.of("Free"));
+        return new ArrayList<>(List.of(
+                copenhagenZoo,
+                blaPlanet,
+                amalienBorg
+        ));
+    }
+
 
 
     public List<Attraction> getAllTouristAttractions() {
@@ -49,5 +56,9 @@ public class TouristRepository {
     public Attraction deleteTouristAttraction(Attraction attraction){
         attractions.remove(attraction);
         return attraction;
+    }
+
+    public void createAttraction(String name, String description, List<String> tags){
+        Attraction newAttraction = new Attraction(name, description, tags);
     }
 }

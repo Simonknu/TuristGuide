@@ -1,37 +1,24 @@
 package com.example.turistguide.model;
 
+import org.w3c.dom.Attr;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Attraction {
     private String name;
     private String description;
-    private String smallDescription;
-    private String imageUrl;
     private List<String> tags;
 
 
 
-    public Attraction(){
-
-    }
-
-    public Attraction(String name, String description,String smallDescription, String imageUrl){
+    public Attraction(String name, String description, List<String> tags){
         this.name = name;
         this.description = description;
-        this.imageUrl = imageUrl;
-        this.smallDescription = smallDescription;
         this.tags = new ArrayList<>();
 
     }
 
-    public void setSmallDescription(String smallDescription) {
-        this.smallDescription = smallDescription;
-    }
-
-    public String getSmallDescription() {
-        return smallDescription;
-    }
 
     public String getName() {
         return name;
@@ -41,9 +28,6 @@ public class Attraction {
         this.name = name;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
 
     public String getDescription() {
         return description;
@@ -53,7 +37,11 @@ public class Attraction {
         this.description = description;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
     }
 }
