@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.w3c.dom.Attr;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -51,6 +52,20 @@ public class TouristController {
     @GetMapping("/addGet")
     public String addAttractionGetMethod(){
         return "addAttraction";
+    }
+
+    @PostMapping("/addPost")
+    public String addAttractionPostMethod(@RequestParam (value="name") String name,
+                                          @RequestParam (value="description") String description,
+                                          @RequestParam (value="tags") String tags, Model model){
+
+        List<String> tagList = Arrays.asList(tags.split("\\s*,\\s*"));
+
+        touristService.createAttraction(name, description, tagList);
+        List<Attraction> attractions = touristService.getAllTouristAttractions();
+        model.addAttribute("attractions", attractions);
+
+        return "index";
     }
 
 }

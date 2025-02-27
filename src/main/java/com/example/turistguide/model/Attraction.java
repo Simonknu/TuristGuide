@@ -15,7 +15,7 @@ public class Attraction {
     public Attraction(String name, String description, List<String> tags){
         this.name = name;
         this.description = description;
-        this.tags = new ArrayList<>();
+        this.tags = new ArrayList<>(tags);
 
     }
 

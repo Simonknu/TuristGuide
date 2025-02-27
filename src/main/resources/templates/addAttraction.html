@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> add an attraction</h1>
+
+<form action="/addPost" method="post">
+
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required>
+  <br><br>
+
+  <label for="description">Description:</label>
+  <input type="text" id="description" name="description" required>
+  <br><br>
+
+  <fieldset>
+    <Legend> Tags</Legend>
+    <p>
+      <input type="checkbox" name="tags" id="tag_1" value="kidsFriendly">
+      <label for="tag_1">Kids Friendly</label>
+    </p>
+
+    <p>
+      <input type="checkbox" name="tags" id="tag_2" value="free">
+      <label for="tag_2">Free</label>
+    </p>
+
+    <p>
+      <input type="checkbox" name="tags" id="tag_3" value="art">
+      <label for="tag_3">Art</label>
+    </p>
+
+    <p>
+      <input type="checkbox" name="tags" id="tag_4" value="museum">
+      <label for="tag_4">Museum</label>
+    </p>
+
+    <p>
+      <input type="checkbox" name="tags" id="tag_5" value="nature">
+      <label for="tag_5">Nature</label>
+    </p>
+
+
+
+  </fieldset>
+
+  <button type="submit">Add attraction</button>
+
+</form>
+
+</body>
+</html>

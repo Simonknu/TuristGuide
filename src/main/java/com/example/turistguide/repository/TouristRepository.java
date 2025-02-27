@@ -60,5 +60,6 @@ public class TouristRepository {
 
     public void createAttraction(String name, String description, List<String> tags){
         Attraction newAttraction = new Attraction(name, description, tags);
+        attractions.add(newAttraction);
     }
 }

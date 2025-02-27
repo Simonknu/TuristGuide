@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Attraction List</title>
+    <link rel="stylesheet" href="/attractionListStyle.css">
 </head>
 <body>
 
-<table>
+<table class="styled-table">
     <thead>
     <tr>
         <th>Name</th>
@@ -20,7 +21,7 @@
         <td th:text="${attraction.description} ?: 'No description available.'"></td>
         <td>  <form th:action="@{/{name}/tags}" method="get">
             <input type="hidden" name="name" th:value="${attraction.name}">
-            <button type="submit">Tags</button>
+            <button class="button" type="submit">Tags</button>
         </form>
         </td>
 
@@ -29,11 +30,11 @@
 </table>
 
 <form action="/addGet" method="get">
-    <button type="submit"> Add an attraction</button>
+    <button class="button" type="submit"> Add an attraction</button>
 </form>
-
+<br>
 <form action="/" method="get">
-    <button type="submit">Go Back</button>
+    <button class="button" type="submit">Go Back</button>
 </form>
 
 </body>

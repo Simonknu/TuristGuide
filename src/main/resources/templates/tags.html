@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/attractionListStyle.css">
 </head>
 <body>
 
-<p th:text="${attraction.name}"></p>
+<h1 th:text="${attraction.name}"></h1>
 
+<table class="styled-table">
+    <tbody>
+    <tr th:each=" tag : ${attraction.tags}">
+        <td th:text="${tag}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
