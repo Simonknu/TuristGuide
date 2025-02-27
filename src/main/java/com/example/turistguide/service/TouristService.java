@@ -29,8 +29,8 @@ public class TouristService {
         return touristRepository.deleteTouristAttraction(attraction);
     }
 
-    public void createAttraction(String name, String description, List<String> tags){
-        touristRepository.createAttraction(name, description, tags);
+    public void createAttraction(String name, String description, String city, List<String> tags){
+        touristRepository.createAttraction(name, description, city, tags);
 
     }
 }

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tourist Guide</title>
-  <link rel="stylesheet" href="/style.css?v=4">
+  <link rel="stylesheet" href="/style.css?v=2">
 </head>
 <body>
 <div class="container">
@@ -30,8 +30,10 @@
 
 <p th:if="${#lists.isEmpty(attractions)}">No attractions found.</p>
 
-<!-- Link to view all attractions -->
-<a href="http://localhost:8080/api/attractions" class="link">Check all Attractions</a>
+  <form action="/attractionList" method="get">
+    <button class="button" type="submit"> get Attraction List
+    </button>
+  </form>
 
 <!-- Search form -->
 <form action="/search" method="get">
@@ -56,10 +58,7 @@
 </form>
   <div class="footer">footer </div>
 </div>
-<form action="/attractionList" method="get">
-  <button type="submit"> get Attraction List
-  </button>
-</form>
+
 <div>
 
 </div>

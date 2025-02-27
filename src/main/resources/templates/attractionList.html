@@ -12,6 +12,7 @@
     <tr>
         <th>Name</th>
         <th>Description</th>
+        <th>City</th>
         <th>Tags</th>
     </tr>
     </thead>
@@ -19,6 +20,7 @@
     <tr th:each="attraction : ${attractions}">
         <td th:text="${attraction.name} ?: 'Unnamed Attraction'"></td>
         <td th:text="${attraction.description} ?: 'No description available.'"></td>
+        <td th:text="${attraction.city} ?: 'Undeclared city'"></td>
         <td>  <form th:action="@{/{name}/tags}" method="get">
             <input type="hidden" name="name" th:value="${attraction.name}">
             <button class="button" type="submit">Tags</button>

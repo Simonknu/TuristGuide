@@ -22,9 +22,9 @@ public class TouristRepository {
     }
 
     public List<Attraction> attractions(){
-        Attraction copenhagenZoo = new Attraction("Copenhagen Zoo", "Zoo", List.of("Nature"));
-        Attraction blaPlanet = new Attraction("Den Bla Planet", "Aquarium", List.of("Nautre"));
-        Attraction amalienBorg = new Attraction("Amalien Borg", "Castle", List.of("Free"));
+        Attraction copenhagenZoo = new Attraction("Copenhagen Zoo", "Zoo", "Copenhagen", List.of("Nature"));
+        Attraction blaPlanet = new Attraction("Den Bla Planet", "Aquarium", "Copenhagen", List.of("Nautre"));
+        Attraction amalienBorg = new Attraction("Amalien Borg", "Castle", "Copenhagen",  List.of("Free"));
         return new ArrayList<>(List.of(
                 copenhagenZoo,
                 blaPlanet,
@@ -58,8 +58,8 @@ public class TouristRepository {
         return attraction;
     }
 
-    public void createAttraction(String name, String description, List<String> tags){
-        Attraction newAttraction = new Attraction(name, description, tags);
+    public void createAttraction(String name, String description, String city, List<String> tags){
+        Attraction newAttraction = new Attraction(name, description, city, tags);
         attractions.add(newAttraction);
     }
 }

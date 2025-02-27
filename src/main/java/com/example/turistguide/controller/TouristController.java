@@ -57,11 +57,12 @@ public class TouristController {
     @PostMapping("/addPost")
     public String addAttractionPostMethod(@RequestParam (value="name") String name,
                                           @RequestParam (value="description") String description,
+                                          @RequestParam (value="city") String city,
                                           @RequestParam (value="tags") String tags, Model model){
 
         List<String> tagList = Arrays.asList(tags.split("\\s*,\\s*"));
 
-        touristService.createAttraction(name, description, tagList);
+        touristService.createAttraction(name, description, city, tagList);
         List<Attraction> attractions = touristService.getAllTouristAttractions();
         model.addAttribute("attractions", attractions);
 
