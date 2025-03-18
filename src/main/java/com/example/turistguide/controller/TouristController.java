@@ -111,12 +111,6 @@ return "attractionList";
     }
 
 
-
-    @GetMapping("/testAction")
-    public String testGithubAction(Model model){
-        return "index";
-    }
-
 }
 
 
