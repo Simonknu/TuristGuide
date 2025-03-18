@@ -1,6 +1,6 @@
 package com.example.turistguide.model;
 
-import org.w3c.dom.Attr;
+
 
 import java.util.ArrayList;
 import java.util.List;

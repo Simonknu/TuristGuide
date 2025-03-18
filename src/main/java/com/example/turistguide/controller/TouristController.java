@@ -5,7 +5,7 @@ import com.example.turistguide.model.Attraction;
 import com.example.turistguide.service.TouristService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.service.annotation.GetExchange;
+
 
 import java.util.Arrays;
 import java.util.List;
