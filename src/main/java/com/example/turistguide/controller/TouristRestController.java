@@ -35,12 +35,14 @@ public class TouristRestController {
         Attraction newAttraction = touristService.addTouristAttraction(attraction);
         return new ResponseEntity<>(newAttraction, HttpStatus.CREATED);
     }
-
+/*
     @DeleteMapping("/delete/{name}")
     public ResponseEntity<Attraction> deleteAttraction(@PathVariable String name){
         Attraction attractionToDelete = touristService.getAttractionByName(name);
         touristService.deleteTouristAttraction(attractionToDelete);
         return new ResponseEntity<>(attractionToDelete, HttpStatus.OK);
     }
+
+ */
 
 }

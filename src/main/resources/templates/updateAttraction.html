@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Attraction</title>
+</head>
+<body>
+<h1>Update an attraction</h1>
+
+<form action="/{name}/saveUpdate" method="post">
+
+    <label for="newName">Name:</label>
+    <input type="text" th:value="${attraction.name}" id="newName" name="newName" required>
+    <br><br>
+
+    <label for="description">Description:</label>
+    <input type="text" th:value="${attraction.description}" id="description" name="description" required>
+    <br><br>
+
+    <fieldset>
+        <legend>City</legend>
+        <select name="city" id="city">
+            <option th:each="city : ${cities}">
+                <span th:text="${city}"></span>
+            </option>
+        </select>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+        <legend>Tags</legend>
+        <p th:each=" tag : ${tagsRepository}">
+            <input type="checkbox" name="tags" th:id="${tag}" th:value="${tag}">
+            <label th:for="${tag}" th:text="${tag}"></label>
+        </p>
+    </fieldset>
+
+    <input type="hidden" name="name" th:value="${attraction.name}">
+
+    <button type="submit">Update</button>
+
+</form>
+
+</body>
+</html>

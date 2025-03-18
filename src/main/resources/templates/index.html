@@ -35,10 +35,9 @@
     </button>
   </form>
 
-<!-- Search form -->
 <form action="/search" method="get">
   <fieldset>
-    <legend> Name of attraction</legend>
+    <legend>Name of attraction</legend>
 
     <select id="name" name="name">
       <option th:each="attraction : ${attractions}">
@@ -48,13 +47,7 @@
 
   </fieldset>
   <button type="submit">Search</button>
-  <!--
-  <p>
-    <label for="name">Search Attraction:</label>
-    <input type="text" id="name" name="name" required>
-    <button type="submit">Search</button>
-  </p>
-  -->
+
 </form>
   <div class="footer">footer </div>
 </div>
