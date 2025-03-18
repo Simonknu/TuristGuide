@@ -13,7 +13,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/")
 public class TouristController {
-    private TouristService touristService;
+    private final TouristService touristService;
 
     public TouristController(TouristService touristService) {
         this.touristService = touristService;
@@ -74,7 +74,7 @@ public class TouristController {
     }
 
     @PostMapping("/{name}/delete")
-    public String deleteAttraction(@RequestParam(value = "name") String name, Model model) {
+    public String deleteAttraction(String name, Model model) {
         Attraction deleteAttraction = touristService.getAttractionByName(name);
         touristService.deleteTouristAttraction(deleteAttraction);
         List<Attraction> attractions = touristService.getAllTouristAttractions();
@@ -85,7 +85,7 @@ public class TouristController {
     }
 
     @GetMapping("/{name}/update")
-    public String updateAttractionGetMethod(@RequestParam(value = "name") String name, Model model) {
+    public String updateAttractionGetMethod(String name, Model model) {
         Attraction updateAttraction = touristService.getAttractionByName(name);
         List<String> tagsRepository = touristService.getTags();
         model.addAttribute("tagsRepository", tagsRepository);
@@ -96,11 +96,11 @@ public class TouristController {
     }
 
     @PostMapping("/{name}/saveUpdate")
-    public String updateAttractionPostMethod(@RequestParam(value = "newName") String newName,
-                                             @RequestParam(value = "description") String description,
-                                             @RequestParam(value = "city") String city,
-                                             @RequestParam(value = "tags") String tags,
-                                             @RequestParam(value = "name") String name, Model model) {
+    public String updateAttractionPostMethod( String newName,
+                                              String description,
+                                              String city,
+                                              String tags,
+                                              String name, Model model) {
         List<String> tagList = Arrays.asList(tags.split("\\s*,\\s*"));
 touristService.updateAttraction(name, newName, description, city, tagList);
         List<Attraction> attractions = touristService.getAllTouristAttractions();
