@@ -30,9 +30,6 @@ public class TouristService {
         return touristRepository.getTouristAttractionByName(name);
     }
 
-    public Attraction addTouristAttraction(Attraction attraction){
-        return touristRepository.addTouristAttraction(attraction);
-    }
     public void deleteTouristAttraction(Attraction attraction){
          touristRepository.deleteTouristAttraction(attraction);
     }

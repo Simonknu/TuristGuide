@@ -1,65 +1,100 @@
-
-
 .container {
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    border-radius: 15px;
-    background-color: lightgray;
-
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+    grid-template-rows: 1fr 0.25fr 1fr 1fr 0.5fr;
+    background-color: lightgrey;
 }
 
-.title{
-
-    grid-column: span 2;
+.header {
+    grid-column: 1/4;
     grid-row: 1;
-    color: white;
     background-color: #009879;
+    color: white;
     text-align: center;
     font-size: xxx-large;
-
 }
-.nav{
-    color: white;
-    grid-area: nav;
-    grid-column: span 2;
+
+.nav {
+    grid-column: 1/4;
     grid-row: 2;
     background-color: #009879;
-    font-size: large;
+    color: white;
+    font-size: medium;
     text-align: center;
 }
 
-.h2{
+.list_title {
+    grid-column: 3;
+    grid-row: 3;
+    justify-self: center; /* horizontal: start | center | end */
+    align-self: end;
+
+}
+
+.text {
     grid-column: 1;
     grid-row: 4;
-    font-size: large;
-    color: darkcyan;
-    text-align: right;
 }
-.list{
+
+.list {
     grid-column: 2;
     grid-row: 4;
+    justify-self: center; /* horizontal: start | center | end */
+    align-self: center;
 }
-.link{
-    grid-column: 2;
-    grid-row: 3;
+
+.examples {
+    grid-column: 3;
+    grid-row: 4;
+}
+
+.footer {
+    grid-column: 1/4;
+    grid-row: 5;
+    background-color: dimgrey;
+    display: flex;
+    justify-content: center;
     text-align: center;
     align-items: center;
-    min-height: 100px;
 
-}
-.footer{
-    grid-column: span 2;
-    background-color: black;
-    color: white;
+    }
 
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
 
 
 .button {
-    grid-row: 3;
-    grid-column: 2;
-    align-items: center;
+    appearance: none;
     background-color: #009879;
     border: 1px solid rgba(27, 31, 35, .15);
     border-radius: 6px;
@@ -81,8 +116,6 @@
     touch-action: manipulation;
     vertical-align: middle;
     white-space: nowrap;
-    align-self: center;  /* Centers vertically */
-    justify-self: center;
 }
 
 .button:focus:not(:focus-visible):not(.focus-visible) {

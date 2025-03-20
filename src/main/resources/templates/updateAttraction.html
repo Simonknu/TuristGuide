@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Update Attraction</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 <h1>Update an attraction</h1>
@@ -20,8 +21,10 @@
     <fieldset>
         <legend>City</legend>
         <select name="city" id="city">
-            <option th:each="city : ${cities}">
-                <span th:text="${city}"></span>
+            <option th:each="city : ${cities}"
+                th:text="${city}"
+                    th:selected="${city == attraction.getCity()}"
+                    >
             </option>
         </select>
     </fieldset>
@@ -31,16 +34,23 @@
     <fieldset>
         <legend>Tags</legend>
         <p th:each=" tag : ${tagsRepository}">
-            <input type="checkbox" name="tags" th:id="${tag}" th:value="${tag}">
+            <input type="checkbox" name="tags" th:id="${tag}" th:value="${tag}" th:checked="${selectedTags.contains(tag)}">
             <label th:for="${tag}" th:text="${tag}"></label>
         </p>
     </fieldset>
 
     <input type="hidden" name="name" th:value="${attraction.name}">
 
-    <button type="submit">Update</button>
+    <hr>
+
+    <button class="button" type="submit">Update</button>
 
 </form>
+
+<hr>
+<div class="back-link">
+    <a th:href="@{/attractionList}" class="button">Back to Attractions List</a>
+</div>
 
 </body>
 </html>

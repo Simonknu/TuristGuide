@@ -1,59 +1,47 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tourist Guide</title>
-  <link rel="stylesheet" href="/style.css?v=2">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourist Guide</title>
+    <link rel="stylesheet" href="/style.css?v=6">
 </head>
 <body>
 <div class="container">
 
-<div class="title">Tourist Guide </div>
-
-  <nav class="nav">
-    A tour guide for Copenhagen
-  </nav>
-
-
-<p>Explore various attractions around Copenhagen to enjoy the most out of this wonderful city.
-  From astonishing castles to beautiful churches and parks. you will find everything inside this city </p>
-
-<h2 class="h2">Examples</h2>
-
-<ul th:if="${not #lists.isEmpty(attractions)}" class="list">
-  <li th:each="attraction, stat : ${attractions}" th:if="${stat.index < 3}">
-    <strong th:text="${attraction.name} ?: 'Unnamed Attraction'"></strong> -
-    <span th:text="${attraction.description} ?: 'No description available.'"></span>
-  </li>
-</ul>
-
-<p th:if="${#lists.isEmpty(attractions)}">No attractions found.</p>
-
-  <form action="/attractionList" method="get">
-    <button class="button" type="submit"> get Attraction List
-    </button>
-  </form>
-
-<form action="/search" method="get">
-  <fieldset>
-    <legend>Name of attraction</legend>
-
-    <select id="name" name="name">
-      <option th:each="attraction : ${attractions}">
-        <span th:text="${attraction.getName()} ?: 'Unnamed Attraction'"></span>
-      </option>
-    </select>
-
-  </fieldset>
-  <button type="submit">Search</button>
-
-</form>
-  <div class="footer">footer </div>
+<div class="header">
+    Tourist Guide
 </div>
 
-<div>
 
+<div class="nav">
+    A tour guide for Copenhagen
+</div>
+
+<div class="list_title">Some of the attraction you can find</div>
+
+<div class="text">
+    Explore various attractions around Copenhagen to enjoy the most out of this wonderful city.
+    From astonishing castles to beautiful churches and parks. you will find everything inside this city
+</div>
+<div class="examples">
+    <ul th:if="${not #lists.isEmpty(attractions)}">
+        <li th:each="attraction, stat : ${attractions}" th:if="${stat.index < 3}">
+            <strong th:text="${attraction.name} ?: 'Unnamed Attraction'"></strong> -
+            <span th:text="${attraction.description} ?: 'No description available.'"></span>
+        </li>
+    </ul>
+    <p th:if="${#lists.isEmpty(attractions)}">No attractions found.</p>
+</div>
+<div class="list">
+    <form action="/attractionList" method="get">
+        <button class="button" type="submit"> get Attraction List
+        </button>
+    </form>
+</div>
+
+
+<div class="footer">Number: +45 12345678 | email: Danish.attraction@mail.com</div>
 </div>
 </body>
 </html>

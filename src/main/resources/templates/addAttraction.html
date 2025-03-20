@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<h1> add an attraction</h1>
+<h1 class="header"> Add an attraction</h1>
 
 <form action="/addPost" method="post">
 
@@ -15,7 +15,9 @@
   <br><br>
 
   <label for="description">Description:</label>
-  <input type="text" id="description" name="description" required>
+  <br>
+  <textarea type="text" id="description" name="description" required rows="6" cols="50">
+  </textarea>
   <br><br>
 
   <fieldset>
@@ -35,11 +37,16 @@
       <label th:for="${tag}" th:text="${tag}"></label>
     </p>
   </fieldset>
+  <hr>
 
 
   <button class="button" type="submit">Add attraction</button>
 
 </form>
+<hr>
+<div class="back-link">
+  <a th:href="@{/attractionList}" class="button">Back to Attractions List</a>
+</div>
 
 </body>
 </html>
