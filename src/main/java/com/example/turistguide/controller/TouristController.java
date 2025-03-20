@@ -44,7 +44,7 @@ public class TouristController {
 
     }
 
-    @GetMapping("/addGet")
+    @GetMapping("/add")
     public String addAttractionGetMethod(Model model) {
         List<String> tags = touristService.getTags();
         model.addAttribute("tags", tags);
@@ -53,7 +53,7 @@ public class TouristController {
         return "addAttraction";
     }
 
-    @PostMapping("/addPost")
+    @PostMapping("/saveAdd")
     public String addAttractionPostMethod( String name,
                                            String description,
                                            String city,
