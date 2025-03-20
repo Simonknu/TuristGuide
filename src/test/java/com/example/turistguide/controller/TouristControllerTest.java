@@ -67,7 +67,7 @@ class TouristControllerTest {
                     .param("city", "city1")
                     .param("tags", "tag1,tag2"))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/index"));
+                .andExpect(redirectedUrl("/"));
 
         verify(touristService, times(1))
                 .createAttraction(eq("name1"), eq("des1"), eq("city1"), eq(List.of("tag1", "tag2")));
