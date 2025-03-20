@@ -61,7 +61,7 @@ class TouristControllerTest {
 
     @Test
     void testAddPost() throws Exception {
-        mockMvc.perform(post("/addPost")
+        mockMvc.perform(post("/saveAdd")
                     .param("name", "name1")
                     .param("description", "des1")
                     .param("city", "city1")
