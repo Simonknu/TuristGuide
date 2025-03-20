@@ -73,3 +73,4 @@ class TouristControllerTest {
                 .createAttraction(eq("name1"), eq("des1"), eq("city1"), eq(List.of("tag1", "tag2")));
     }
 }
+
