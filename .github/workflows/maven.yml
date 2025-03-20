@@ -17,25 +17,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      # Inject environment variables for database configuration
-      DEV_DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}  # Database URL
-      DEV_DATABASE_USERNAME: ${{ secrets.DEV_DATABASE_USERNAME }}  # Database username
-      DEV_DATABASE_PASSWORD: ${{ secrets.DEV_DATABASE_PASSWORD }}  # Database password
-      SPRING_PROFILES_ACTIVE: ci  # Specify the Spring profile for CI (use 'ci' profile)
-    services:
-      mysql:
-        image: mysql:5.7
-        env:
-          MYSQL_ROOT_PASSWORD: ${{ secrets.DEV_DATABASE_PASSWORD }}
-          MYSQL_DATABASE: touristguide
-        ports:
-          - 3306:3306  # Expose MySQL on port 3306
-        options: >-
-          --health-cmd="mysqladmin ping --silent" 
-          --health-interval=10s 
-          --health-timeout=5s 
-          --health-retries=3
+    
     steps:
       - uses: actions/checkout@v4
       - name: Set up JDK 23
